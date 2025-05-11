@@ -1,0 +1,5 @@
+import './index.css'
+export { Player } from './components/player/player'
+export { usePlayer } from './components/player/use-player'
+export type * from './components/player/interfaces'
+export type * from './api'

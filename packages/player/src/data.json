@@ -1,0 +1,74 @@
+{
+  "isError": false,
+  "success": true,
+  "style": "current",
+  "js_version": "1737933782214",
+  "subtitle": [
+    {
+      "row": 1,
+      "group": "Türkçe",
+      "name": "Türkçe",
+      "short_name": "tr",
+      "link": "https://player.zenithstudio.net/api/subtitle/get/3443/3404.vtt"
+    }
+  ],
+  "source": [
+    {
+      "group": 1,
+      "row": 3,
+      "name": "Orijinal",
+      "hls": true,
+      "link": [
+        {
+          "hls": true,
+          "quality": 720,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/99300407/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 1080,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/65790551/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 1440,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/72187570/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 2160,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/10307543/master.m3u8"
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "row": 1,
+      "name": "Türkçe Dublaj",
+      "hls": true,
+      "link": [
+        {
+          "hls": true,
+          "quality": 720,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/19682199/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 1080,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/39242106/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 1440,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/92128423/master.m3u8"
+        },
+        {
+          "hls": true,
+          "quality": 2160,
+          "link": "https://cdn-1.zenithstudio.net/file/video/3443/51826202/master.m3u8"
+        }
+      ]
+    }
+  ],
+  "banner": "https://player.zenithstudio.net/file/banner/9915050_479.webp"
+}
