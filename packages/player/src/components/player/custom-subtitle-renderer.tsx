@@ -434,6 +434,12 @@ export const CustomSubtitleRenderer: React.FC<CustomSubtitleRendererProps> = Rea
         wordBreak: 'break-word' as const,
         whiteSpace: 'pre-wrap',
         WebkitTextStroke: '1px ' + subtitleStyle.letterColor,
+        visibility: 'visible',
+        display: 'inline-block',
+        lineHeight: '1.4',
+        opacity: '1',
+        textSize: 'auto',
+        userSelect: 'none',
       }),
       [subtitleStyle]
     )
@@ -443,6 +449,9 @@ export const CustomSubtitleRenderer: React.FC<CustomSubtitleRendererProps> = Rea
         display: 'inline-block',
         boxDecorationBreak: 'clone' as const,
         WebkitBoxDecorationBreak: 'clone' as const,
+        visibility: 'visible',
+        zIndex: 9999,
+        opacity: '1',
       }),
       [subtitleStyle.backgroundColor]
     )

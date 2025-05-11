@@ -1355,7 +1355,7 @@ export function Player({
     prepareNativeTracks(subtitles)
   }, [subtitles])
 
-  const showNativeTrack = isIos() && isFullScreenEnabled
+  const showNativeTrack = isSafari()
 
   const onReset = () => {
     resetPlayerSettings()
@@ -1422,21 +1422,21 @@ export function Player({
           playsInline
           webkit-playsinline="true"
           x-webkit-playsinline="true"
+          crossorigin="anonymous"
           controls={showNativeTrack}
         >
-          {isSafari() &&
-            isFullScreenEnabled &&
-            nativeTracks.map((sub, index) => (
-              <track
-                default={index === 0}
-                label={sub.label}
-                srcLang={sub.srclang}
-                kind="subtitles"
-                src={sub.src}
-              />
-            ))}
+          {subtitles.map((sub, index) => (
+            <track
+              key={sub.srclang}
+              default={subtitle && subtitle.srclang === sub.srclang}
+              label={sub.label}
+              srcLang={sub.srclang}
+              kind="subtitles"
+              src={sub.src}
+            />
+          ))}
         </video>
-        {subtitle && !(isFullScreenEnabled && isSafari()) && (
+        {subtitle && !showNativeTrack && (
           <CustomSubtitleRenderer
             subtitleStyle={subtitleStyle}
             selectedSubtitle={subtitle}
@@ -1784,6 +1784,34 @@ export function Player({
           min-width: 0 !important;
           max-width: 90% !important;
           line-height: normal !important;
+          z-index: 9999 !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          pointer-events: none !important;
+        }
+
+        /* Safari için ek stil düzeltmeleri */
+        video::-webkit-media-text-track-container {
+          visibility: visible !important;
+          z-index: 9999 !important;
+          opacity: 1 !important;
+          display: block !important;
+          pointer-events: none !important;
+        }
+
+        video::cue {
+          background-color: ${subtitleStyle.backgroundColor} !important;
+          color: ${subtitleStyle.color} !important;
+          font-family: ${subtitleStyle.fontFamily} !important;
+          font-size: ${subtitleStyle.fontSize} !important;
+          font-weight: ${subtitleStyle.fontWeight} !important;
+          text-shadow: ${subtitleStyle.textShadow ? '2px 2px 2px rgba(0, 0, 0, 0.6)' : 'none'} !important;
+          -webkit-font-smoothing: antialiased !important;
+          visibility: visible !important;
+          display: block !important;
         }
 
         @media (max-width: 768px) {
@@ -1802,6 +1830,10 @@ export function Player({
             left: 0 !important;
             right: 0 !important;
             z-index: 99999 !important;
+          }
+          
+          video::cue {
+            font-size: 16px !important;
           }
         }
 
@@ -1837,6 +1869,11 @@ export function Player({
             z-index: 100000 !important;
           }
 
+          video::-webkit-media-text-track-display {
+            z-index: 100001 !important;
+            visibility: visible !important;
+            display: flex !important;
+          }
         }
       `}</style>
     </>
